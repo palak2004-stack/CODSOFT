@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Function for chatbot response
+string chatbotResponse(string userInput) {
+    if (userInput == "hello" || userInput == "hi") {
+        return "Hello! How can I help you today?";
+    } else if (userInput == "how are you") {
+        return "I'm a chatbot, but thanks for asking! How can I assist you?";
+    } else if (userInput == "weather") {
+        return "I can't provide real-time weather updates, but I suggest checking a weather app!";
+    } else if (userInput == "what is your name") {
+        return "I'm just a simple rule-based chatbot.";
+    } else if (userInput == "bye" || userInput == "goodbye") {
+        return "Goodbye! Have a nice day!";
+    } else {
+        return "I'm sorry, I didn't understand that.";
+    }
+}
+
+int main() {
+    string userInput;
+
+    while (true) {
+        cout << "You: ";
+        getline(cin, userInput);  // Get the user's input
+
+        if (userInput == "exit" || userInput == "quit") {
+            cout << "Chatbot: Goodbye!" << endl;
+            break;
+        }
+
+        string response = chatbotResponse(userInput);  // Get the chatbot's response
+        cout << "Chatbot: " << response << endl;
+    }
+
+    return 0;
+}
